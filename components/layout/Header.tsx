@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import {
@@ -9,7 +10,7 @@ import {
     Shield,
     BarChart3,
     Github,
-    Sparkles,
+    ExternalLink,
 } from 'lucide-react';
 
 const navItems = [
@@ -25,16 +26,22 @@ export function Header() {
     return (
         <header className="sticky top-0 z-50 glass border-b border-border">
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2 group">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                        <Sparkles className="w-5 h-5 text-white" />
+                <Link href="/" className="flex items-center gap-3 group">
+                    <Image
+                        src="/ainative-icon.svg"
+                        alt="AINative"
+                        width={32}
+                        height={28}
+                        className="transition-transform group-hover:scale-105"
+                    />
+                    <div className="flex items-center gap-2">
+                        <span className="font-semibold text-lg">
+                            AI Kit
+                        </span>
+                        <span className="hidden sm:inline-block text-xs px-2 py-0.5 rounded-full bg-brand-primary/20 text-brand-primary font-medium">
+                            Showcase
+                        </span>
                     </div>
-                    <span className="font-semibold text-lg">
-                        AI Kit
-                    </span>
-                    <span className="hidden sm:inline-block text-xs px-2 py-0.5 rounded-full bg-primary/20 text-primary">
-                        Showcase
-                    </span>
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-1">
@@ -48,7 +55,7 @@ export function Header() {
                                 className={cn(
                                     'flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all',
                                     isActive
-                                        ? 'bg-primary/20 text-primary'
+                                        ? 'bg-brand-primary/20 text-brand-primary'
                                         : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                                 )}
                             >
@@ -65,15 +72,19 @@ export function Header() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                        aria-label="View on GitHub"
                     >
                         <Github className="w-5 h-5" />
                     </a>
-                    <Link
-                        href="/"
-                        className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-primary to-secondary text-white text-sm font-medium glow-primary-hover transition-all"
+                    <a
+                        href="https://ainative.studio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg btn-primary text-sm font-medium"
                     >
-                        Get Started
-                    </Link>
+                        AINative Studio
+                        <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
                 </div>
             </div>
 
@@ -90,7 +101,7 @@ export function Header() {
                                 className={cn(
                                     'flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all',
                                     isActive
-                                        ? 'bg-primary/20 text-primary'
+                                        ? 'bg-brand-primary/20 text-brand-primary'
                                         : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                                 )}
                             >

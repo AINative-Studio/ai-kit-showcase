@@ -1,22 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
     :root {
-        --background: 222 47% 6%;
+        /* AINative Design System Colors */
+        --background: 226 35% 12%;
         --foreground: 210 40% 98%;
-        --primary: 217 91% 60%;
-        --primary-foreground: 222 47% 6%;
-        --secondary: 262 83% 58%;
+        --primary: 233 82% 65%;
+        --primary-foreground: 226 35% 12%;
+        --secondary: 180 43% 36%;
         --secondary-foreground: 210 40% 98%;
-        --accent: 142 76% 36%;
-        --accent-foreground: 210 40% 98%;
-        --muted: 217 33% 17%;
+        --accent: 39 97% 60%;
+        --accent-foreground: 226 35% 12%;
+        --muted: 223 30% 27%;
         --muted-foreground: 215 20% 65%;
-        --card: 222 47% 8%;
+        --card: 228 29% 18%;
         --card-foreground: 210 40% 98%;
-        --border: 217 33% 17%;
+        --border: 223 30% 27%;
+
+        /* Brand Colors */
+        --brand-purple: 233 82% 65%;
+        --brand-blue: 224 84% 61%;
+        --brand-teal: 180 43% 36%;
+        --brand-gold: 39 97% 60%;
+        --brand-cyan: 189 76% 50%;
     }
 }
 
@@ -25,12 +35,12 @@
         @apply border-border;
     }
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground font-sans;
         font-feature-settings: "rlig" 1, "calt" 1;
     }
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - AINative Brand */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -42,21 +52,21 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.5);
+    background: hsl(var(--brand-purple) / 0.5);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.7);
+    background: hsl(var(--brand-purple) / 0.7);
 }
 
-/* Gradient Backgrounds */
+/* AINative Gradient Backgrounds */
 .gradient-hero {
     background: linear-gradient(
         135deg,
-        hsl(var(--primary) / 0.15) 0%,
-        hsl(var(--secondary) / 0.15) 50%,
-        hsl(var(--accent) / 0.1) 100%
+        hsl(var(--brand-purple) / 0.15) 0%,
+        hsl(var(--brand-blue) / 0.15) 50%,
+        hsl(var(--brand-cyan) / 0.1) 100%
     );
     background-size: 400% 400%;
     animation: gradient-shift 8s ease infinite;
@@ -65,12 +75,23 @@
 .gradient-text {
     background: linear-gradient(
         135deg,
-        hsl(var(--primary)) 0%,
-        hsl(var(--secondary)) 50%,
-        hsl(var(--accent)) 100%
+        hsl(var(--brand-purple)) 0%,
+        hsl(var(--brand-blue)) 50%,
+        hsl(var(--brand-cyan)) 100%
     );
     background-size: 200% 200%;
     animation: gradient-shift 4s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-gold {
+    background: linear-gradient(
+        135deg,
+        hsl(var(--brand-gold)) 0%,
+        hsl(var(--brand-cyan)) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -91,9 +112,9 @@
     pointer-events: none;
     background: linear-gradient(
         135deg,
-        hsl(var(--primary) / 0.5),
-        hsl(var(--secondary) / 0.5),
-        hsl(var(--accent) / 0.3)
+        hsl(var(--brand-purple) / 0.5),
+        hsl(var(--brand-blue) / 0.5),
+        hsl(var(--brand-cyan) / 0.3)
     );
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
@@ -112,13 +133,17 @@
     -webkit-backdrop-filter: blur(12px);
 }
 
-/* Glow Effects */
+/* AINative Glow Effects */
 .glow-primary {
-    box-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 30px hsl(var(--brand-purple) / 0.3);
 }
 
 .glow-primary-hover:hover {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 40px hsl(var(--brand-purple) / 0.5);
+}
+
+.glow-gold {
+    box-shadow: 0 0 30px hsl(var(--brand-gold) / 0.3);
 }
 
 /* Code Block Styles */
@@ -149,7 +174,7 @@
 .streaming-cursor::after {
     content: '|';
     animation: cursor-blink 1s infinite;
-    color: hsl(var(--primary));
+    color: hsl(var(--brand-purple));
 }
 
 /* Feature Card Hover */
@@ -159,7 +184,7 @@
 
 .feature-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
+    box-shadow: 0 20px 40px hsl(var(--brand-purple) / 0.15);
 }
 
 /* Demo Container */
@@ -196,17 +221,17 @@
     animation: count-up 0.5s ease-out forwards;
 }
 
-/* Safety Badge Colors */
+/* AINative Badge Colors */
 .badge-safe {
-    background: hsl(var(--accent) / 0.2);
-    color: hsl(var(--accent));
-    border: 1px solid hsl(var(--accent) / 0.3);
+    background: hsl(var(--brand-teal) / 0.2);
+    color: hsl(var(--brand-teal));
+    border: 1px solid hsl(var(--brand-teal) / 0.3);
 }
 
 .badge-warning {
-    background: hsl(45 93% 47% / 0.2);
-    color: hsl(45 93% 47%);
-    border: 1px solid hsl(45 93% 47% / 0.3);
+    background: hsl(var(--brand-gold) / 0.2);
+    color: hsl(var(--brand-gold));
+    border: 1px solid hsl(var(--brand-gold) / 0.3);
 }
 
 .badge-danger {
@@ -237,4 +262,26 @@
     border: 1px solid hsl(var(--border)) !important;
     border-radius: 0.5rem !important;
     box-shadow: 0 10px 40px hsl(0 0% 0% / 0.3) !important;
+}
+
+/* AINative Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, hsl(var(--brand-purple)), hsl(var(--brand-blue)));
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 20px hsl(var(--brand-purple) / 0.5);
+    transform: translateY(-1px);
+}
+
+.btn-gold {
+    background: linear-gradient(135deg, hsl(var(--brand-gold)), hsl(39 97% 50%));
+    color: hsl(var(--background));
+    font-weight: 600;
+}
+
+.btn-gold:hover {
+    box-shadow: 0 0 20px hsl(var(--brand-gold) / 0.5);
 }
