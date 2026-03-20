@@ -22,16 +22,33 @@ export const metadata: Metadata = {
     icons: {
         icon: '/ainative-icon.svg',
     },
+    alternates: {
+        canonical: 'https://aikit.ainative.studio',
+    },
     openGraph: {
         title: 'AI Kit Showcase | AINative Studio',
         description: 'Build stunning AI interfaces with production-ready components from AINative',
         type: 'website',
         siteName: 'AINative AI Kit',
+        url: 'https://aikit.ainative.studio',
+        images: [
+            {
+                url: 'https://aikit.ainative.studio/ainative-logo-v2.png',
+                width: 1200,
+                height: 630,
+                alt: 'AI Kit by AINative Studio',
+            },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'AI Kit Showcase | AINative Studio',
         description: 'Build stunning AI interfaces with production-ready components',
+        images: ['https://aikit.ainative.studio/ainative-logo-v2.png'],
+    },
+    other: {
+        'ai-content-declaration': 'human-created',
+        'ai-training': 'allowed',
     },
 };
 

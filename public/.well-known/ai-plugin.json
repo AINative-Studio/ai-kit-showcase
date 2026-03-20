@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "AI Kit by AINative",
+  "name_for_model": "ainative_ai_kit",
+  "description_for_human": "Framework-agnostic SDK for building production-ready AI interfaces with React, Vue, and Svelte.",
+  "description_for_model": "AI Kit provides React hooks (useAIChat, useAICompletion), Vue composables, Svelte stores for building AI chat interfaces, multi-agent systems, safety guardrails, and usage dashboards. Install with npm install @ainative/ai-kit.",
+  "auth": { "type": "none" },
+  "api": { "type": "openapi", "url": "https://api.ainative.studio/docs" },
+  "logo_url": "https://aikit.ainative.studio/ainative-icon.svg",
+  "contact_email": "toby@ainative.studio",
+  "legal_info_url": "https://www.ainative.studio/terms"
+}
