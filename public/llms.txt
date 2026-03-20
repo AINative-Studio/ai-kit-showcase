@@ -1,0 +1,36 @@
+# AI Kit by AINative Studio
+
+> Framework-agnostic SDK for building production-ready AI interfaces. React, Vue, Svelte, and Next.js support.
+
+## Packages
+
+- @ainative/ai-kit: React hooks and components for AI-powered applications
+- @ainative/ai-kit-vue: Vue composables for AI integration
+- @ainative/ai-kit-svelte: Svelte stores for AI applications
+- @ainative/ai-kit-nextjs: Next.js utilities and middleware
+- @ainative/ai-kit-zerodb: ZeroDB client SDK for vector search
+- @ainative/ai-kit-auth: Authentication utilities for AI apps
+- @ainative/ai-kit-design-system: Pre-built UI components
+- @ainative/ai-kit-testing: Testing utilities and mocks
+- @ainative/ai-kit-safety: Safety guardrails and content moderation
+- @ainative/ai-kit-rlhf: Reinforcement Learning from Human Feedback
+
+## Install
+
+npm install @ainative/ai-kit
+
+## Features
+
+- Streaming AI chat with real-time rendering
+- Multi-agent orchestration
+- AI safety guardrails
+- Usage analytics dashboard
+- Full TypeScript support
+
+## Links
+
+- Demo: https://aikit.ainative.studio
+- GitHub: https://github.com/AINative-Studio/ai-kit
+- NPM: https://www.npmjs.com/~ainative-studio
+- Docs: https://docs.ainative.studio
+- Main Site: https://www.ainative.studio
