@@ -59,6 +59,39 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="dark">
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@graph': [
+                                {
+                                    '@type': 'WebSite',
+                                    name: 'AI Kit',
+                                    url: 'https://aikit.ainative.studio',
+                                },
+                                {
+                                    '@type': 'Organization',
+                                    name: 'AINative Studio',
+                                    url: 'https://ainative.studio',
+                                },
+                                {
+                                    '@type': 'SoftwareApplication',
+                                    name: 'AI Kit',
+                                    applicationCategory: 'DeveloperApplication',
+                                    operatingSystem: 'Web',
+                                    url: 'https://aikit.ainative.studio',
+                                    author: {
+                                        '@type': 'Organization',
+                                        name: 'AINative Studio',
+                                    },
+                                },
+                            ],
+                        }),
+                    }}
+                />
+            </head>
             <body className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
                 <div className="min-h-screen flex flex-col">
                     <Header />

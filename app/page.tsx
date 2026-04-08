@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import {
     MessageSquare,
     Bot,
@@ -16,6 +13,7 @@ import {
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { FEATURES, STATS } from '@/lib/mock-data';
+import { FadeInUp, FadeInView } from '@/components/home/HeroAnimations';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     MessageSquare,
@@ -36,46 +34,31 @@ export default function HomePage() {
                 </div>
 
                 <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
+                    <FadeInUp>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6">
                             <Sparkles className="w-4 h-4" />
                             AI Kit UI/UX Workshop - Live Demo
                         </div>
-                    </motion.div>
+                    </FadeInUp>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
-                    >
-                        Build{' '}
-                        <span className="gradient-text">Stunning AI</span>
-                        <br />
-                        Interfaces
-                    </motion.h1>
+                    <FadeInUp delay={0.1}>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+                            Build{' '}
+                            <span className="gradient-text">Stunning AI</span>
+                            <br />
+                            Interfaces
+                        </h1>
+                    </FadeInUp>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
-                    >
-                        Production-ready React components for streaming chat,
-                        agent orchestration, safety features, and usage analytics.
-                        Ship AI features in minutes, not weeks.
-                    </motion.p>
+                    <FadeInUp delay={0.2}>
+                        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+                            Production-ready React components for streaming chat,
+                            agent orchestration, safety features, and usage analytics.
+                            Ship AI features in minutes, not weeks.
+                        </p>
+                    </FadeInUp>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-4"
-                    >
+                    <FadeInUp delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link href="/streaming">
                             <Button size="lg" className="gap-2">
                                 Explore Demos
@@ -92,7 +75,7 @@ export default function HomePage() {
                                 View on GitHub
                             </Button>
                         </a>
-                    </motion.div>
+                    </FadeInUp>
                 </div>
             </section>
 
@@ -101,11 +84,9 @@ export default function HomePage() {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {STATS.map((stat, index) => (
-                            <motion.div
+                            <FadeInUp
                                 key={stat.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.1 * index }}
+                                delay={0.1 * index}
                                 className="text-center"
                             >
                                 <div className="text-3xl sm:text-4xl font-bold gradient-text mb-1">
@@ -114,7 +95,7 @@ export default function HomePage() {
                                 <div className="text-sm text-muted-foreground">
                                     {stat.label}
                                 </div>
-                            </motion.div>
+                            </FadeInUp>
                         ))}
                     </div>
                 </div>
@@ -124,36 +105,26 @@ export default function HomePage() {
             <section className="py-20 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-3xl sm:text-4xl font-bold mb-4"
-                        >
-                            Interactive Demos
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-muted-foreground max-w-2xl mx-auto"
-                        >
-                            Explore each AI Kit feature with live, interactive demos.
-                            See how easy it is to build beautiful AI experiences.
-                        </motion.p>
+                        <FadeInView>
+                            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                                Interactive Demos
+                            </h2>
+                        </FadeInView>
+                        <FadeInView delay={0.1}>
+                            <p className="text-muted-foreground max-w-2xl mx-auto">
+                                Explore each AI Kit feature with live, interactive demos.
+                                See how easy it is to build beautiful AI experiences.
+                            </p>
+                        </FadeInView>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         {FEATURES.map((feature, index) => {
                             const Icon = iconMap[feature.icon];
                             return (
-                                <motion.div
+                                <FadeInView
                                     key={feature.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.1 * index }}
+                                    delay={0.1 * index}
                                 >
                                     <Link href={feature.href}>
                                         <Card
@@ -176,7 +147,7 @@ export default function HomePage() {
                                             </div>
                                         </Card>
                                     </Link>
-                                </motion.div>
+                                </FadeInView>
                             );
                         })}
                     </div>
@@ -187,23 +158,16 @@ export default function HomePage() {
             <section className="py-20 px-4 bg-muted/30">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-3xl sm:text-4xl font-bold mb-4"
-                        >
-                            Multi-Framework Support
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-muted-foreground"
-                        >
-                            Use AI Kit with your favorite framework
-                        </motion.p>
+                        <FadeInView>
+                            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                                Multi-Framework Support
+                            </h2>
+                        </FadeInView>
+                        <FadeInView delay={0.1}>
+                            <p className="text-muted-foreground">
+                                Use AI Kit with your favorite framework
+                            </p>
+                        </FadeInView>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-6">
@@ -212,12 +176,9 @@ export default function HomePage() {
                             { name: 'Vue', pkg: '@ainative/ai-kit-vue', icon: Layers },
                             { name: 'Svelte', pkg: '@ainative/ai-kit-svelte', icon: Layers },
                         ].map((framework, index) => (
-                            <motion.div
+                            <FadeInView
                                 key={framework.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 * index }}
+                                delay={0.1 * index}
                             >
                                 <Card className="text-center">
                                     <framework.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
@@ -226,7 +187,7 @@ export default function HomePage() {
                                         {framework.pkg}
                                     </code>
                                 </Card>
-                            </motion.div>
+                            </FadeInView>
                         ))}
                     </div>
                 </div>
@@ -236,21 +197,14 @@ export default function HomePage() {
             <section className="py-20 px-4">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="text-3xl sm:text-4xl font-bold mb-4"
-                        >
-                            Get Started in Seconds
-                        </motion.h2>
+                        <FadeInView>
+                            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                                Get Started in Seconds
+                            </h2>
+                        </FadeInView>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
+                    <FadeInView>
                         <Card className="code-block p-6">
                             <pre className="text-sm overflow-x-auto">
                                 <code>{`# Install AI Kit
@@ -274,7 +228,7 @@ function Chat() {
 }`}</code>
                             </pre>
                         </Card>
-                    </motion.div>
+                    </FadeInView>
 
                     <div className="text-center mt-8">
                         <Link href="/streaming">
@@ -290,30 +244,17 @@ function Chat() {
             {/* CTA Section */}
             <section className="py-20 px-4 gradient-hero">
                 <div className="max-w-4xl mx-auto text-center">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl sm:text-4xl font-bold mb-4"
-                    >
-                        Ready to Build?
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-muted-foreground mb-8"
-                    >
-                        Join thousands of developers building beautiful AI interfaces with AI Kit.
-                    </motion.p>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-4"
-                    >
+                    <FadeInView>
+                        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                            Ready to Build?
+                        </h2>
+                    </FadeInView>
+                    <FadeInView delay={0.1}>
+                        <p className="text-muted-foreground mb-8">
+                            Join thousands of developers building beautiful AI interfaces with AI Kit.
+                        </p>
+                    </FadeInView>
+                    <FadeInView delay={0.2} className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a href="https://github.com/AINative-Studio/ai-kit" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="gap-2">
                                 Get Started
@@ -325,7 +266,7 @@ function Chat() {
                                 Learn More
                             </Button>
                         </a>
-                    </motion.div>
+                    </FadeInView>
                 </div>
             </section>
         </div>
