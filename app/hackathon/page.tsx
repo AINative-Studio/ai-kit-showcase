@@ -98,6 +98,8 @@ export default function HackathonPage() {
   const [summary, setSummary] = useState<Summary | null>(null);
   const [activeTab, setActiveTab] = useState<'timeline' | 'gaps' | 'fixes' | 'export'>('timeline');
   const [error, setError] = useState<string | null>(null);
+  const [opencapPushing, setOpencapPushing] = useState(false);
+  const [opencapResult, setOpencapResult] = useState<any>(null);
   const abortRef = useRef<AbortController | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -184,6 +186,29 @@ export default function HackathonPage() {
     } finally {
       setLoading(false);
       abortRef.current = null;
+    }
+  };
+
+  const handlePushToOpenCap = async () => {
+    if (!capTableExport) return;
+    setOpencapPushing(true);
+    setOpencapResult(null);
+    try {
+      const res = await fetch('http://localhost:8001/push-to-opencap', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          company_name: companyName,
+          opencap_export: capTableExport.opencap_export || {},
+          data_room_index: capTableExport.data_room_index || [],
+        }),
+      });
+      const data = await res.json();
+      setOpencapResult(data);
+    } catch (e: any) {
+      setOpencapResult({ success: false, error: e.message });
+    } finally {
+      setOpencapPushing(false);
     }
   };
 
@@ -601,6 +626,32 @@ export default function HackathonPage() {
 
                 return (
                   <>
+                    {/* Push to OpenCap */}
+                    <div className="flex items-center gap-4 flex-wrap">
+                      <Button
+                        onClick={handlePushToOpenCap}
+                        disabled={opencapPushing}
+                        className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700"
+                      >
+                        {opencapPushing
+                          ? <><Loader2 className="w-4 h-4 animate-spin" />Pushing to OpenCap Stack…</>
+                          : <><Building2 className="w-4 h-4" />Push to OpenCap Stack</>}
+                      </Button>
+                      {opencapResult && (
+                        <div className={cn(
+                          'flex items-center gap-2 px-4 py-2 rounded-lg text-sm border',
+                          opencapResult.success
+                            ? 'bg-green-500/10 text-green-400 border-green-500/20'
+                            : 'bg-red-500/10 text-red-400 border-red-500/20'
+                        )}>
+                          {opencapResult.success
+                            ? <><CheckCircle2 className="w-4 h-4 shrink-0" />
+                                {opencapResult.results?.summary?.stakeholders_pushed ?? 0} stakeholders · {opencapResult.results?.summary?.share_classes_pushed ?? 0} share classes · {opencapResult.results?.summary?.documents_pushed ?? 0} docs pushed to OpenCap</>
+                            : <><AlertCircle className="w-4 h-4 shrink-0" />Push failed: {opencapResult.error || opencapResult.detail}</>}
+                        </div>
+                      )}
+                    </div>
+
                     {/* Stats bar */}
                     <div className="grid grid-cols-3 gap-4">
                       <Card className="border-green-500/20">
