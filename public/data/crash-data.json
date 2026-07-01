@@ -1,0 +1,38 @@
+{
+  "bicycle": [
+    {
+      "year": 2021,
+      "total": 9,
+      "fatalities": 0,
+      "injuries": 9,
+      "source": "SWITRS/Caltrans"
+    },
+    {
+      "year": 2022,
+      "total": 23,
+      "fatalities": 2,
+      "injuries": 21,
+      "source": "SWITRS/Caltrans"
+    },
+    {
+      "year": 2023,
+      "total": 19,
+      "fatalities": 0,
+      "injuries": 19,
+      "source": "SWITRS/Caltrans"
+    }
+  ],
+  "pedestrian": [
+    {
+      "year": 2023,
+      "total": 28,
+      "fatalities": 5,
+      "injuries": 23,
+      "source": "SWITRS/Caltrans"
+    }
+  ],
+  "county": "Santa Cruz",
+  "state": "California",
+  "data_source": "California State Highway System Crash Data (Caltrans/SWITRS)",
+  "note": "State highway system only \u2014 does not include city streets or local roads"
+}

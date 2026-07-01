@@ -14,6 +14,7 @@ const nextConfig = {
     // 301 redirects to consolidated ainative.studio/ai-kit
     async redirects() {
         return [
+            // Keep data-room local, redirect other root paths
             {
                 source: '/',
                 destination: 'https://ainative.studio/ai-kit',
@@ -37,11 +38,6 @@ const nextConfig = {
             {
                 source: '/dashboard',
                 destination: 'https://ainative.studio/ai-kit/dashboard',
-                permanent: true,
-            },
-            {
-                source: '/:path*',
-                destination: 'https://ainative.studio/ai-kit',
                 permanent: true,
             },
         ];
