@@ -13,6 +13,20 @@ export const metadata: Metadata = {
         'useAIChat hook',
         'AI Kit streaming',
     ],
+    openGraph: {
+        title: 'AI Streaming Chat Demo | AI Kit',
+        description:
+            'Real-time streaming AI chat with markdown rendering, code highlighting, and typing indicators.',
+        type: 'website',
+        url: 'https://aikit.ainative.studio/streaming',
+        siteName: 'AI Kit by AINative Studio',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AI Streaming Chat Demo | AI Kit',
+        description:
+            'Real-time streaming AI chat with markdown rendering, code highlighting, and typing indicators.',
+    },
     alternates: { canonical: 'https://aikit.ainative.studio/streaming' },
 };
 

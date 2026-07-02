@@ -13,6 +13,20 @@ export const metadata: Metadata = {
         'AI metrics',
         'AI Kit dashboard',
     ],
+    openGraph: {
+        title: 'AI Usage Analytics Dashboard | AI Kit',
+        description:
+            'Monitor AI model usage, token consumption, and performance metrics with real-time analytics dashboard components.',
+        type: 'website',
+        url: 'https://aikit.ainative.studio/dashboard',
+        siteName: 'AI Kit by AINative Studio',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AI Usage Analytics Dashboard | AI Kit',
+        description:
+            'Monitor AI model usage, token consumption, and performance metrics with real-time analytics dashboard components.',
+    },
     alternates: { canonical: 'https://aikit.ainative.studio/dashboard' },
 };
 

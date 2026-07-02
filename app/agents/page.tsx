@@ -13,6 +13,20 @@ export const metadata: Metadata = {
         'React AI agents',
         'AI Kit agents',
     ],
+    openGraph: {
+        title: 'Multi-Agent AI Orchestration Demo | AI Kit',
+        description:
+            'Build multi-agent AI systems with specialized agents for customer support, code assistance, and creative writing.',
+        type: 'website',
+        url: 'https://aikit.ainative.studio/agents',
+        siteName: 'AI Kit by AINative Studio',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Multi-Agent AI Orchestration Demo | AI Kit',
+        description:
+            'Build multi-agent AI systems with specialized agents for customer support, code assistance, and creative writing.',
+    },
     alternates: { canonical: 'https://aikit.ainative.studio/agents' },
 };
 

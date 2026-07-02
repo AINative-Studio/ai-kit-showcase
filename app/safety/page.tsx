@@ -13,6 +13,20 @@ export const metadata: Metadata = {
         'responsible AI',
         'AI Kit safety',
     ],
+    openGraph: {
+        title: 'AI Safety & Content Moderation Demo | AI Kit',
+        description:
+            'Production-ready AI safety guardrails with content filtering, rate limiting, and moderation for responsible AI deployment.',
+        type: 'website',
+        url: 'https://aikit.ainative.studio/safety',
+        siteName: 'AI Kit by AINative Studio',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AI Safety & Content Moderation Demo | AI Kit',
+        description:
+            'Production-ready AI safety guardrails with content filtering, rate limiting, and moderation for responsible AI deployment.',
+    },
     alternates: { canonical: 'https://aikit.ainative.studio/safety' },
 };
 
