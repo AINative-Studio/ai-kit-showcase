@@ -23,6 +23,8 @@ const navItems = [
 export function Header() {
     const pathname = usePathname();
 
+    if (pathname?.includes('/hackathon')) return null;
+
     return (
         <header className="sticky top-0 z-50 glass border-b border-border">
             <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">

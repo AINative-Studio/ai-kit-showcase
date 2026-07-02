@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Poppins, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
-import { headers } from 'next/headers';
 
 const poppins = Poppins({
     subsets: ['latin'],
@@ -58,10 +57,6 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const headersList = headers();
-    const pathname = headersList.get('x-pathname') || '';
-    const hideHeader = pathname.includes('/hackathon');
-
     return (
         <html lang="en" className="dark">
             <head>
@@ -99,7 +94,7 @@ export default function RootLayout({
             </head>
             <body className={`${poppins.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
                 <div className="min-h-screen flex flex-col">
-                    {!hideHeader && <Header />}
+                    <Header />
                     <main className="flex-1">
                         {children}
                     </main>
