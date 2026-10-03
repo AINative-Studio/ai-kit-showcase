@@ -13,8 +13,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@ainative/ai-kit": "^0.1.0-alpha.4",
-    "@ainative/ai-kit-core": "^0.1.4",
+    "@ainative/ai-kit": "^0.2.1",
+    "@ainative/ai-kit-core": "^0.2.0",
     "@ainative/ai-kit-nextjs": "^0.1.0-alpha.3",
     "@ainative/ai-kit-observability": "^0.1.1",
     "@ainative/ai-kit-safety": "^0.1.1",
@@ -52,10 +52,10 @@
   },
   "overrides": {
     "@ainative/ai-kit": {
-      "@ainative/ai-kit-core": "^0.1.4"
+      "@ainative/ai-kit-core": "^0.2.0"
     },
     "@ainative/ai-kit-nextjs": {
-      "@ainative/ai-kit-core": "^0.1.4"
+      "@ainative/ai-kit-core": "^0.2.0"
     }
   }
 }
